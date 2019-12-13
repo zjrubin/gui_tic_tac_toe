@@ -57,89 +57,18 @@ def win(player):
     window.destroy()  # is used to close the program
 
 
-btn1 = Button(window,
-              bg="yellow",
-              fg="Black",
-              width=3,
-              height=1,
-              font=('Helvetica', '20'),
-              command=lambda: clicked(1))
-btn1.grid(column=1, row=1)
-btn2 = Button(window,
-              bg="yellow",
-              fg="Black",
-              width=3,
-              height=1,
-              font=('Helvetica', '20'),
-              command=lambda: clicked(2))
-btn2.grid(column=2, row=1)
-btn3 = Button(window,
-              bg="yellow",
-              fg="Black",
-              width=3,
-              height=1,
-              font=('Helvetica', '20'),
-              command=lambda: clicked(3))
-btn3.grid(column=3, row=1)
-btn4 = Button(window,
-              bg="yellow",
-              fg="Black",
-              width=3,
-              height=1,
-              font=('Helvetica', '20'),
-              command=lambda: clicked(4))
-btn4.grid(column=1, row=2)
-btn5 = Button(window,
-              bg="yellow",
-              fg="Black",
-              width=3,
-              height=1,
-              font=('Helvetica', '20'),
-              command=lambda: clicked(5))
-btn5.grid(column=2, row=2)
-btn6 = Button(window,
-              bg="yellow",
-              fg="Black",
-              width=3,
-              height=1,
-              font=('Helvetica', '20'),
-              command=lambda: clicked(6))
-btn6.grid(column=3, row=2)
-btn7 = Button(window,
-              bg="yellow",
-              fg="Black",
-              width=3,
-              height=1,
-              font=('Helvetica', '20'),
-              command=lambda: clicked(7))
-btn7.grid(column=1, row=3)
-btn8 = Button(window,
-              bg="yellow",
-              fg="Black",
-              width=3,
-              height=1,
-              font=('Helvetica', '20'),
-              command=lambda: clicked(8))
-btn8.grid(column=2, row=3)
-btn9 = Button(window,
-              bg="yellow",
-              fg="Black",
-              width=3,
-              height=1,
-              font=('Helvetica', '20'),
-              command=lambda: clicked(9))
-btn9.grid(column=3, row=3)
-
-buttons = {
-    1: btn1,
-    2: btn2,
-    3: btn3,
-    4: btn4,
-    5: btn5,
-    6: btn6,
-    7: btn7,
-    8: btn8,
-    9: btn9
-}
+buttons = dict()
+counter = 1
+for row in range(1, 4):
+    for column in range(1, 4):
+        buttons[counter] = Button(window,
+                                  bg="yellow",
+                                  fg="Black",
+                                  width=3,
+                                  height=1,
+                                  font=('Helvetica', '20'),
+                                  command=lambda id=counter: clicked(id))
+        buttons[counter].grid(column=column, row=row)
+        counter += 1
 
 window.mainloop()

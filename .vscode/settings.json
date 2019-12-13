@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "python.linting.enabled": true,
+  "python.formatting.provider": "yapf",
+  "python.linting.pycodestyleEnabled": false,
+  "python.linting.pydocstyleEnabled": false
+}

@@ -2,19 +2,19 @@ import tkinter as tk
 from tkinter import messagebox
 
 
-def main():
+def main() -> None:
     program = Tic_Tac_Toe()
     program.window.mainloop()
 
 
 class Tic_Tac_Toe:
-    def __init__(self):
+    def __init__(self) -> None:
         self.next_move = True
         self.turn = 1
         self.window = self.create_window()
         self.buttons = self.create_buttons()
 
-    def create_window(self):
+    def create_window(self) -> tk.Tk:
         window = tk.Tk()
         window.title("Welcome to Tic-Tac-Toe!")
         window.geometry("400x250")
@@ -26,7 +26,7 @@ class Tic_Tac_Toe:
         lbl.grid(row=2, column=0)
         return window
 
-    def create_buttons(self):
+    def create_buttons(self) -> dict:
         buttons = dict()
         counter = 1
         for row in range(1, 4):
@@ -43,9 +43,9 @@ class Tic_Tac_Toe:
                 counter += 1
         return buttons
 
-    def clicked(self, id: int):
+    def clicked(self, id: int) -> None:
         button = self.buttons[id]
-        if not self.buttons[id]["text"]:  # For getting the text of a button
+        if not button["text"]:
             if self.next_move:
                 button["text"] = "X"
             else:
@@ -53,7 +53,7 @@ class Tic_Tac_Toe:
             self.next_move = not self.next_move
             self.check()
 
-    def check(self):
+    def check(self) -> None:
         winning_combinations = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (1, 4, 7),
                                 (2, 5, 8), (3, 6, 9), (1, 5, 9), (3, 5, 7)]
         marks = ('X', 'O')
@@ -71,10 +71,10 @@ class Tic_Tac_Toe:
 
         self.turn += 1
 
-    def win(self, player):
+    def win(self, player: str) -> None:
         ans = "Game complete " + player + " wins "
         messagebox.showinfo("Congratulations", ans)
-        self.window.destroy()  # is used to close the program
+        self.window.destroy()
 
 
 if __name__ == '__main__':

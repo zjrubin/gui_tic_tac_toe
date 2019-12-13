@@ -16,8 +16,8 @@ class Tic_Tac_Toe:
 
     def create_window(self):
         window = tk.Tk()
-        window.title("Welcome to The Gaming world TIC-Tac-Toe ")
-        window.geometry("400x300")
+        window.title("Welcome to Tic-Tac-Toe!")
+        window.geometry("400x250")
         lbl = tk.Label(window, text="Tic-tac-toe Game", font=('Futura', '15'))
         lbl.grid(row=0, column=0)
         lbl = tk.Label(window, text="Player 1: X", font=('Futura', '10'))
